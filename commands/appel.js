@@ -798,7 +798,7 @@ module.exports = {
                 } else {
                     sideScrollY = false;
                 }
-                console.log(sideScrollX, sideScrollY);
+                // console.log(sideScrollX, sideScrollY);
 
                 let enemyLastX = enemy.x;
                 if (
