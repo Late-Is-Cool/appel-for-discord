@@ -13,7 +13,7 @@ Node.js v16.6.0 or up is required to run this bot.
 $ git clone https://github.com/Late-Is-Cool/appel-for-discord.git
 $ cd appel-for-discord
 ```
-2. Creating a .env file
+2. Editing the .env file
 ```dotenv
 TOKEN=<token>
 PREFIX=<prefix>
