@@ -2,8 +2,8 @@
 # package.json
 bio.txt
 PFP.png
-# .env
+.env
 emojis
 node_modules
 unfinished commands
-/data/data.csv
+# /data/data.csv
