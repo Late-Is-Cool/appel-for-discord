@@ -22,50 +22,7 @@ for (file of commandsFolder) {
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
     console.log(`Loaded ${client.commands.size} commands!`);
-    client.user.setActivity("the Gameboy Omega", { type: "PLAYING" });
-
-    const randomSayings = [
-        "I'm a bot!",
-        "Fight me! PeanutBotter and 20 Addons!",
-        "Griffpatch is the best!",
-        "<:appelRight:957310841827504188><:punch:962121524830167172><a:EnemyLeft:957310841806553168>",
-        "i kinda forgor 💀",
-    ];
-
-    let randomSaying =
-        randomSayings[Math.floor(Math.random() * randomSayings.length)];
-
-    const testChannel = client.channels.cache.get("957299356212539542");
-    let dependencies = "";
-    for (const [key, value] of Object.entries(
-        require("./package.json").dependencies
-    )) {
-        dependencies += `${key}@${value}\n`;
-    }
-    testChannel.send({
-        embeds: [
-            new MessageEmbed()
-                .setColor("BLURPLE")
-                .setTitle("Bot restarted.")
-                // add a dependencies to the embed
-                .setDescription(
-                    `Version is ${
-                        require("./package.json").version
-                    }\n\nDependencies used:\n**${dependencies}**\n${randomSaying}`
-                )
-                .setThumbnail(
-                    "https://user-images.githubusercontent.com/78447219/162547857-3277dc69-2598-4154-8bd3-5f9f088a0b46.png"
-                )
-                .setTimestamp(),
-        ],
-    });
-
-    // send the csv file to the channel if there isnt one
-    const csvFile = path.join(__dirname, "./data/data.csv");
-    const databaseChannel = client.channels.cache.get(
-        process.env.DATABASE_CHANNEL
-    );
-    // check if the bot has a message in the database channel
+    
     databaseChannel.messages.fetch({ limit: 1 }).then(async (messages) => {
         if (messages.size == 0) {
             // if there isnt a message, send the csv file
