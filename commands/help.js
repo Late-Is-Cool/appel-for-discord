@@ -58,6 +58,10 @@ module.exports = {
                         {
                             name: `${process.env.PREFIX}appel`,
                             value: "Finally, actually starts the game",
+                        },
+                        {
+                            name: `${process.env.PREFIX}stats`,
+                            value: "Shows your stats in the game",
                         }
                     ),
             ];
