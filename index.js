@@ -22,39 +22,6 @@ for (file of commandsFolder) {
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
     console.log(`Loaded ${client.commands.size} commands!`);
-    
-    databaseChannel.messages.fetch({ limit: 1 }).then(async (messages) => {
-        if (messages.size == 0) {
-            // if there isnt a message, send the csv file
-            databaseChannel
-                .send({
-                    content:
-                        "**DATABASE**,\n\nDo not delete or unpin this message! If you do, the data will be cleared.",
-                    files: [new MessageAttachment(csvFile, "data.csv")],
-                })
-                .then((message) => {
-                    message.pin();
-                });
-        }
-    });
-
-    databaseChannel.messages
-        .fetchPinned({ limit: 1 })
-        .then(async (messages) => {
-            if (messages.size == 1) {
-                const message = messages.first();
-                message.edit({
-                    files: [new MessageAttachment(csvFile, "data.csv")],
-                });
-                fs.watchFile(csvFile, (curr, prev) => {
-                    // if the file is updated, edit the pinned message
-                    message.edit({
-                        files: [new MessageAttachment(csvFile, "data.csv")],
-                    });
-                });
-            }
-        })
-        .catch((err) => console.log(err));
 });
 
 client.on("messageCreate", (message) => {
